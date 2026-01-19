@@ -21,3 +21,6 @@ The instructor can also see the whole diff history of a file similar to a git co
 Plaggy was first created for the Amazon Mentorship Program at Bilkent University where it won the Best Technical Solution award.
 The demo video submitted for the project can be viewed here: <https://drive.google.com/file/d/1seTZonq7x2dnjLiXrEp2CcQo1wb9jm7E/view?usp=sharing>
 
+# Future
+This project will be continued in the near future
+
