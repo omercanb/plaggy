@@ -14,6 +14,7 @@ var ErrStudentAssignmentNotFound = errors.New("error querying for student assign
 type StudentAssignmentRepo interface {
 	GetStudentAssignments(studentID uint) []domain.StudentAssignment
 	NewStudentAssignment(studentID uint, assignmentID uint) (domain.StudentAssignment, error)
+	Delete(a domain.StudentAssignment)
 }
 
 type studentAssignmentRepo struct {
@@ -62,3 +63,9 @@ func (repo *studentAssignmentRepo) GetStudentAssignments(studentID uint) []domai
 	}
 	return assignments
 }
+
+func (repo *studentAssignmentRepo) Delete(a domain.StudentAssignment){
+	repo.db.Delete(&database.StudentAssignment{},a.ID)
+} 
+
+// stu assigment -> delete 

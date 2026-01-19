@@ -57,12 +57,14 @@ func (h *Handler) SubmitHandler(w http.ResponseWriter, r *http.Request) {
 	studentAssignmentToSubmitTo := domain.StudentAssignment{}
 	assignmentFound := false
 	for _, a := range assignments {
-		if a.AssignmentID == submission.AssignmentId {
+		if a.AssignmentID == submission.AssignmentId {	
 			assignmentFound = true
-			studentAssignmentToSubmitTo = a
+			studentAssignmentRepo.Delete(a)
+			studentAssignmentToSubmitTo, err = studentAssignmentRepo.NewStudentAssignment(student.ID, submission.AssignmentId)
 			break
 		}
 	}
+
 	if assignmentFound == false {
 		studentAssignmentToSubmitTo, err = studentAssignmentRepo.NewStudentAssignment(student.ID, submission.AssignmentId)
 		if err != nil {
