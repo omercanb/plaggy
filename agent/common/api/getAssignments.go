@@ -11,8 +11,8 @@ import (
 )
 
 const (
-	//BackendBaseURL = "http://localhost:8080"
-	BackendBaseURL     = "https://plaggy.xyz"
+	BackendBaseURL = "http://localhost:8080"
+	// BackendBaseURL     = "https://plaggy.xyz"
 	SubmissionEndpoint = BackendBaseURL + "/api/v1/submit"
 	AssignmentEndpoint = BackendBaseURL + "/api/v1/assignments"
 )

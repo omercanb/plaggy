@@ -18,8 +18,8 @@ import (
 )
 
 const (
-	//BackendBaseURL = "http://localhost:8080"
-	BackendBaseURL       = "https://plaggy.xyz"
+	BackendBaseURL = "http://localhost:8080"
+	// BackendBaseURL       = "https://plaggy.xyz"
 	MagicRequestEndpoint = BackendBaseURL + "/api/v1/auth/magic-request"
 	MagicStatusEndpoint  = BackendBaseURL + "/api/v1/auth/magic-status"
 )
