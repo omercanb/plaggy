@@ -114,6 +114,7 @@ export default function FileDiffTimeline({
     const totalStr = res.headers.get("X-Total-Count") ?? "0";
     const body: FileDiffsResponse = await res.json();
 
+    
     if (append) {
       setPatchesDesc((prev) => [...prev, ...(body.data.patches || [])]);
     } else {
@@ -147,6 +148,8 @@ export default function FileDiffTimeline({
 
   const activePatch = patchesDesc[activeIdxDesc];
 
+  const activePatchNumber = total ? total - 1 - activeIdxDesc : activeIdxDesc;
+  
   const createdAtLabel = (iso: string) =>
     new Intl.DateTimeFormat(undefined, {
       dateStyle: "medium",
@@ -196,7 +199,7 @@ export default function FileDiffTimeline({
                           color="text.primary"
                           fontWeight={selected ? 700 : 500}
                         >
-                          Patch #{p.id}
+                          Patch {total ? total - 1 - idx:idx}
                         </Typography>
                       </TimelineContent>
                     </TimelineItem>
@@ -259,7 +262,7 @@ export default function FileDiffTimeline({
         <Box sx={{ flex: 1, minWidth: 0 }}>
           <Typography variant="subtitle1" sx={{ mb: 1 }}>
             {activePatch
-              ? `Patch #${activePatch.id} — ${createdAtLabel(
+              ? `Patch ${activePatchNumber} — ${createdAtLabel(
                   activePatch.createdAt
                 )}`
               : "No patch selected"}
