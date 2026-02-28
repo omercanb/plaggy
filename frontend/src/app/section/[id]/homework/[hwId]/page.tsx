@@ -18,7 +18,6 @@ import {
   Stack,
   Tooltip,
 } from "@mui/material";
-import DetectionTable from "@/components/DetectionTable";
 import ViewParagraphModal from "@/components/ViewDetectionModal";
 import { useAuth } from "@/providers/AuthProvider";
 import {
@@ -31,6 +30,7 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 import { Chip, Grid } from "@mui/material";
 import DetectionTablePaginated from "@/components/DetectionTablePaginator";
+import StudentFileTimelinePanel from "@/components/StudentFileTimelinePanel";
 
 // These are pretty useful, probably move them to some other place to reuse
 const fmtDateTime = (d: Date) =>
@@ -311,6 +311,7 @@ export default function HomeworkDetectionsPage() {
           </CardContent>
         </Card>
 
+        <StudentFileTimelinePanel homeworkID={hwId} sectionID={id} />
         <ViewParagraphModal
           open={viewOpen}
           content={selected.diffData}

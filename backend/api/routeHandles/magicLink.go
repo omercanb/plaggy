@@ -58,8 +58,8 @@ func MagicRequestHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	mutex.Unlock()
 
-	fmt.Printf("Magic link for %s: http://plaggy.xyz/api/v1/auth/magic-consume?magic=%s\n", req.Email, magicToken)
-	loginUrl := fmt.Sprintf("http://plaggy.xyz/api/v1/auth/magic-consume?magic=%s", magicToken)
+	fmt.Printf("Magic link for %s: http://localhost:8080/api/v1/auth/magic-consume?magic=%s\n", req.Email, magicToken)
+	loginUrl := fmt.Sprintf("http://localhost:8080/api/v1/auth/magic-consume?magic=%s", magicToken)
 	mailcontent := fmt.Sprintf("Login by going to this URL: %s", loginUrl)
 	mailserver.SendMailWithPlaintextContent(req.Email, "Login From PlagAI", "Magic Link Login", mailcontent)
 
